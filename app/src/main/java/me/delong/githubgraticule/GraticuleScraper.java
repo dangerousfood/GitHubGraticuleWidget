@@ -46,15 +46,15 @@ public class GraticuleScraper extends AsyncTask<String, Void, String> {
         // TODO: do something with the feed
         System.err.println("ATTRIBUTE!!! "+attr);
         views.setInt(R.id.bg_layout, "setBackgroundColor", Color.parseColor("#FFFFFF"));
+
+        if(attr == null){
+            System.err.println("Updating Color Null");
+            views.setInt(R.id.bg_layout, "setBackgroundColor", Color.parseColor("#FFFFFF"));
+        }
+        else{
+            System.err.println("Updating Color Assigned");
+            views.setInt(R.id.bg_layout, "setBackgroundColor", Color.parseColor(attr));
+        }
         appWidgetManager.updateAppWidget(appWidgetId, views);
-//        if(attr == null){
-//            System.err.println("Updating Color Null");
-//            views.setInt(R.id.bg_layout, "setBackgroundColor", Color.parseColor("#FFFFFF"));
-//        }
-//        else{
-//            System.err.println("Updating Color Assigned");
-//            views.setInt(R.id.bg_layout, "setBackgroundColor", Color.parseColor(attr));
-//        }
-        //RemoteViews views = new RemoteViews(tracker.getPackageName(), R.layout.graticule_tracker);
     }
 }
